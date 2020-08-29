@@ -1,0 +1,19 @@
+service:
+ name: priceCrusher
+
+plugins:
+ - serverless-plugin-optimize
+ - serverless-offline
+ - serverless-plugin-typescript
+
+provider:
+ name: aws
+ runtime: nodejs12.x
+
+functions:
+ main: 
+   handler: src/lambda.handler
+   events:
+     - http:
+         method: any
+         path: /{any+}
